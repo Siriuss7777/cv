@@ -33,6 +33,8 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Définition des différentes classes de texte */
+
 .medium-text {
     font-size: 1.25em;
 }
@@ -51,12 +53,6 @@ body {
 
 .bold-text{
     font-family: "SF Pro Semibold";
-}
-
-#container {
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(var(--black), black) no-repeat;
 }
 
 .gradient-text {
@@ -78,12 +74,13 @@ body {
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
-    -webkit-animation: fade 15s cubic-bezier(.64,.3,.39,.76) infinite;
-    -moz-animation: fade 15s cubic-bezier(.64,.3,.39,.76) infinite;
-    animation: fade 15s cubic-bezier(.64,.3,.39,.76) infinite;
+    -webkit-animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    -moz-animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
 /*Commenter compatibilité / un peu le code ?*/
+/* Définition des keyframes pour l'utilisation des transition dans le .dynamic-gradient-text */
 
 @-webkit-keyframes fade {
     0%{background-position:0% 0%}
@@ -101,6 +98,17 @@ body {
     100%{background-position:0% 0%}
 }
 
+/*  */
+
+#container {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(var(--black), black) no-repeat;
+}
+
+
+/* Conteneur de la page du CV */
+
 main {
     /*Définition de la taille de la page*/
     width: 1240px;
@@ -112,20 +120,25 @@ main {
     color: aliceblue;
 }
 
+/* Header */
+
 header {
     display: flex;
     font-family: "SF Pro Semibold";
-    box-shadow: 0px 0px 1em black;
+    box-shadow:  0px 20px 18px -9px black;
     justify-content: space-between;
     margin-bottom: 50px;
 }
 
+/* Image de l'en-tête */
+
 header picture {
-    border-top-left-radius: 5px;
+    border-radius: 12.5px;
     background: var(--bg-gradient);
     max-width: 250px;
     max-height: 250px;
     align-content: center;
+    margin-left: 25px;
 }
 
 header picture img {
@@ -133,28 +146,35 @@ header picture img {
     max-height: inherit;
 }
 
-header .head-text {
+/* Texte de l'en-tête */
+
+header #head-text {
     width: fit-content;
     line-height: 1em;
     text-align: center;
     align-self: center;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
-header .head-text h1 {
+header #head-text h1,
+header #head-text h2 {
     flex-grow: 1;
+    /* margin:30px; */
 }
 
-header .contact {
+/* Partie "Contact" du header */
+
+header #contact {
     width: 250px;
-    margin: 5px;
+    margin-right: 25px;
 }
 
-header .contact h1 {
+header #contact h1 {
     margin: 15px 0;
 }
 
-header ul {
+
+header #contact ul {
     margin-left: 1em;
     padding: 0;
     display: flex;
@@ -163,24 +183,28 @@ header ul {
     align-items: flex-start;
 }
 
-header .contact-content li:nth-of-type(even) {
+header #contact-content li:nth-of-type(even) {
     padding-left: 1em;
     font-family: "SF Pro Light";
 }
 
-.under-header{
+/* Règles du contenu principal */
+
+#under-header{
     display:flex;
     font-size: 1.25em;
 }
 
-.under-header aside {
+/* Contenu aside  */
+
+#under-header aside {
     margin-left: 20px;
     width: 25%;
     display:flex;
     flex-direction: column;
 }
 
-.under-header aside article{
+#under-header aside article{
     min-width: fit-content;
     padding: 15px;
     margin:20px; 
@@ -190,60 +214,81 @@ header .contact-content li:nth-of-type(even) {
     background-color: var(--very-clear-white);
 }
 
-.under-header aside article h2 {
+#under-header aside article h2 {
     margin: 0.5em;
 }
 
-.under-header .main-content div {
+/* Règles générales communes des articles du contenu principal 
+Demander: laisser #under-header ?
+*/
+
+#under-header #main-content article {
     padding-left: 40px;
     font-size: 1.15em;
 }
 
-.under-header .main-content li,
-.under-header .main-content h3,
-.under-header .main-content p{
-    margin:0;
-}
-
-.under-header .main-content div h2 {
-    margin: 0;
-}
-
-.under-header .main-content div ul {
-    padding: 0;
-    list-style-type: none;
-}
-
-.under-header .main-content div ul li h3 {
-    color: var(--clear-white);
-    letter-spacing: 1px;
-}
-.under-header .main-content div div{
-    padding: 0;
-}
-
-.under-header .main-content div .bar {
-    width: 250px;
-    height: auto;
-    background-color: aliceblue;
-    border-radius: 2px;
+#under-header #main-content article h2 {
     margin-bottom: 10px;
 }
 
-.under-header .main-content div .skill{
-    padding: 0;
-    background-image: var(--pgbar-gradient);
-    border-radius: 2px;
+#under-header #main-content article h3,
+#under-header #main-content article p {
+    margin:0;
 }
 
-.under-header .main-content div div span{
+#under-header #main-content article li {
+    margin-bottom: 10px;
+}
+
+#under-header #main-content article ul {
+    padding: 0;
+    margin-top: 0;
+    list-style-type: none;
+}
+
+#under-header #main-content article h2 {    
+    margin: 0;
+}
+
+#under-header #main-content article ul h3 {
+    color: var(--clear-white);
+    letter-spacing: 1px;
+}
+
+/* Article compétences: barres de progression, règles générales de l'article */
+
+#under-header #main-content #competences h2 {    
+    margin-bottom: 10px;
+}
+
+#under-header #main-content #competences .bar {
+    width: 250px;
+    height: 1em;
+    background-color: aliceblue;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+#under-header #main-content #competences .bar span{
     padding-left: 5px;
 }
 
-.under-header .main-content div .python{
+#under-header #main-content #competences .skill[data-size]{
+    height: 1em;
+    padding: 0;
+    background-image: var(--pgbar-gradient);
+    border-radius: 3px;
+    color:aliceblue;
+    content: attr(data-size) "%";
+    width: attr(data-size number);
+}
+
+/* Définition des id spécifiques aux compétences :: À CHANGER APRES LE COURS PSEUDO-ÉLÉMENTS */
+
+/* #under-header #main-content #competences .python{
     width: 65%;
 }
 
-.under-header .main-content div .office{
+#under-header #main-content #competences .office{
     width: 80%;
-}
+} */

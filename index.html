@@ -15,15 +15,15 @@
                     <img src="images/pic.png" alt="">
                 </picture>
 
-                <div class="bold-text head-text dynamic-gradient-text"> <!-- NOTE: utilisation d'id ? -->
+                <div id="head-text" class="bold-text dynamic-gradient-text"> <!-- NOTE: utilisation d'id ? -->
                     <h1 class="very-large-text">Bastien Le Gall</h1>
                     <h2 class="large-text">ce que je fais dans la vie en gros</h2>
                 </div>
 
-                <div class="contact">
+                <div id="contact">
                     <h1 class="large-text dynamic-gradient-text">Contact</h1>
 
-                    <ul class="contact-content">
+                    <ul id="contact-content">
                         <li class="medium-text">N° téléphone:</li>
                         <li>00-07-77-77-77</li>
                         <li class="medium-text">Mail:</li>
@@ -35,7 +35,7 @@
                 </div>
 
             </header>
-            <section class="under-header">
+            <section id="under-header">
 
                 <aside>
                     <article id="hobbies">
@@ -58,9 +58,9 @@
                     </article>
                 </aside>
 
-                <section class="main-content">
+                <section id="main-content">
 
-                    <div id="diplomes">
+                    <article id="diplomes">
                         <h2 class="larger-text bold-text gradient-text">Diplômes</h2>
                         <ul>
                             <li>
@@ -69,9 +69,9 @@
                                 <p>Admis Mention Très Bien, session 2018</p>
                             </li>
                             <li>
-                                <h3 class="large text">Diplôme du Baccalauréat Général</h3>
+                                <h3 class="large text">Diplôme du Baccalauréat Technologique</h3>
                                 <p>Lycée La Martinière Monplaisir / 2018-2021</p>
-                                <p>Admis Mention Très Bien, session 2021</p>
+                                <p>Section STI2D, Admis Mention Très Bien, session 2021</p>
                             </li>
                             <li>
                                 <h3 class="large text">Bachelor Universitaire Technologique</h3>
@@ -83,8 +83,8 @@
                                 <p>Atteste de mon investissement dans la continuité pédagogique pendant la période de confinement de Mars 2020</p>
                             </li>
                         </ul>
-                    </div>
-                    <div id="experience">
+                    </article>
+                    <article id="experience">
                         <h2 class="larger-text bold-text gradient-text">Expérience</h2>
                         <ul>
                             <li>
@@ -93,13 +93,17 @@
                                 <p>Stage dans la section EducTice de l'ifé, 2018</p>
                             </li>
                         </ul>
-                    </div>
+                    </article>
 
-                    <div id="competences">
+                    <article id="competences">
                         <h2 class="larger-text bold-text gradient-text">Compétences</h2>
-                        <div class="bar"><div class="skill python"><span>65%</span></div></div>
-                        <div class="bar"><div class="skill office"><span>80%</span></div></div>
-                    </div>
+                        <!-- <progress value="60" max="100"></progress>                           À retravailler -->
+                        <p>Python</p>
+                        <div class="bar"><div class="skill python" data-size="65"></div></div>
+                        <p>Suite Office</p>
+                        <div class="bar"><div class="skill office" data-size="80"></div></div>
+                        <p>HTML/CSS</p>
+                    </article>
 
                 </section>
 
