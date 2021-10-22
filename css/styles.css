@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
     font-family: 'SF Pro Light';
     src: url('../fonts/webfontkit-sf/SFProDisplay-Light.eot');
     src: url('../fonts/webfontkit-sf/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/webfontkit-sf/SFProDisplay-Light.woff2') format('woff2'), url('../fonts/webfontkit-sf/SFProDisplay-Light.woff') format('woff'), url('../fonts/webfontkit-sf/SFProDisplay-Light.ttf') format('truetype'), url('../fonts/webfontkit-sf/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
@@ -22,7 +22,7 @@
     --very-clear-white: #ebf6fe10;
     --clear-white: rgba(236, 246, 254, 0.7);
     --pgbar-gradient: linear-gradient(to left, var(--tint-1), var(--tint-3));
-    --bg-gradient: linear-gradient(to right, var(--tint-1), var(--tint-3));
+    --bg-gradient: linear-gradient(95deg, var(--tint-1), var(--tint-3));
     --text-gradient: linear-gradient(to right, var(--tint-1), var(--tint-3), var(--tint-1));
 }
 
@@ -112,10 +112,11 @@ body {
 main {
     /*Définition de la taille de la page*/
     width: 1240px;
-    height: 1754px;
+    /* height: 1754px; */
     margin: 35px 0;
+    padding-bottom: 35px;
     /*Mise en page (ombre autour du container, légère bordure pour améliorer la discernation de l'élément, coins arrondis)*/
-    box-shadow: 0px 0px 50px var(--clear-white);
+    box-shadow: 0px 0px 30px var(--clear-white);
     border-radius: 5px;
     color: aliceblue;
 }
@@ -170,12 +171,14 @@ header #contact {
 }
 
 header #contact h1 {
-    margin: 15px 0;
+    margin-top: 25px;
+    margin-bottom: 0;
 }
 
 
 header #contact ul {
     margin-left: 1em;
+    margin-top: 10px;
     padding: 0;
     display: flex;
     list-style-type: none;
@@ -197,33 +200,40 @@ header #contact-content li:nth-of-type(even) {
 
 /* Contenu aside  */
 
-#under-header aside {
-    margin-left: 20px;
-    width: 25%;
+#under-header aside{
+    margin-left: 25px;
+    min-width: 250px;
     display:flex;
     flex-direction: column;
+}
+
+#under-header aside h2{
+    font-size: 1.5em;
 }
 
 #under-header aside article{
     min-width: fit-content;
     padding: 15px;
-    margin:20px; 
-    box-shadow: 0px 0px 20px var(--clear-white);
+    margin-bottom: 50px; 
+    box-shadow: 0px 0px 15px var(--clear-white);
     border: 1px solid aliceblue;
     border-radius: 5px;
-    background-color: var(--very-clear-white);
 }
 
 #under-header aside article h2 {
     margin: 0.5em;
 }
 
-/* Règles générales communes des articles du contenu principal 
-Demander: laisser #under-header ?
-*/
+/* Règles de la section principale du CV */
+
+/* #under-header #main-content{
+    width: 500px;
+} */
+
+/* Règles générales communes des articles du contenu principal */
 
 #under-header #main-content article {
-    padding-left: 40px;
+    margin: 0 50px 0 50px;
     font-size: 1.15em;
 }
 
@@ -233,7 +243,7 @@ Demander: laisser #under-header ?
 
 #under-header #main-content article h3,
 #under-header #main-content article p {
-    margin:0;
+    margin:0;   
 }
 
 #under-header #main-content article li {
@@ -255,40 +265,56 @@ Demander: laisser #under-header ?
     letter-spacing: 1px;
 }
 
-/* Article compétences: barres de progression, règles générales de l'article */
+/* Aside compétences: barres de progression, règles générales de l'article */
 
-#under-header #main-content #competences h2 {    
+#under-header #competences{
+    margin: 0;
+    padding-right: 25px;
+}
+
+#under-header #competences h2 {    
+    margin: 10px 0;
+}
+
+#under-header #competences label{
+    display: block;
+    margin-left: 15px;
+}
+
+#under-header #competences progress{
+    margin-left: 15px;
     margin-bottom: 10px;
+    height: 1.25em;
+    color: aliceblue;
+    position: relative;
+    -webkit-appearance: none;
 }
 
-#under-header #main-content #competences .bar {
-    width: 250px;
-    height: 1em;
-    background-color: aliceblue;
-    border-radius: 3px;
-    margin-bottom: 10px;
+#under-header #competences progress[value]::before{
+    position: absolute;
+    content: attr(value) "%";
+    align-items: center;
+    margin-left: 5px;
 }
 
-#under-header #main-content #competences .bar span{
-    padding-left: 5px;
+@supports selector(::-webkit-progress-bar) {
+    #under-header #competences ::-webkit-progress-bar{
+        background-color: var(--clear-white);
+        border-radius: 4px;
+    }
+    #under-header #competences ::-webkit-progress-value{
+        background: var(--pgbar-gradient);
+        border-radius: 4px;
+    }
 }
 
-#under-header #main-content #competences .skill[data-size]{
-    height: 1em;
-    padding: 0;
-    background-image: var(--pgbar-gradient);
-    border-radius: 3px;
-    color:aliceblue;
-    content: attr(data-size) "%";
-    width: attr(data-size number);
+@supports selector(::-moz-progress-bar) {
+    #under-header #main-content #competences ::-moz-progress-bar{
+        background-color: aliceblue;
+        border-radius: 4px;
+    }
+    #under-header #main-content #competences ::-moz-progress-value{
+        background: var(--pgbar-gradient);
+        border-radius: 4px;
+    }
 }
-
-/* Définition des id spécifiques aux compétences :: À CHANGER APRES LE COURS PSEUDO-ÉLÉMENTS */
-
-/* #under-header #main-content #competences .python{
-    width: 65%;
-}
-
-#under-header #main-content #competences .office{
-    width: 80%;
-} */
