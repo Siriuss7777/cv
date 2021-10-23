@@ -18,7 +18,7 @@
     --tint-1: #e06f4d;
     --tint-2: #da4d69;
     --tint-3: #3254fc;
-    --black: #1f1f1f;
+    --black: #0f0f0f;
     --very-clear-white: #ebf6fe10;
     --clear-white: rgba(236, 246, 254, 0.7);
     --pgbar-gradient: linear-gradient(to left, var(--tint-1), var(--tint-3));
@@ -33,10 +33,11 @@ body {
     scroll-behavior: smooth;
 }
 
+
 /* Définition des différentes classes de texte */
 
 .medium-text {
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 
 .large-text {
@@ -51,12 +52,12 @@ body {
     font-size: 3.5em
 }
 
-.bold-text{
+.bold-text {
     font-family: "SF Pro Semibold";
 }
 
 .gradient-text {
-    width:fit-content;
+    width: fit-content;
     background: var(--bg-gradient);
     background-clip: text;
     -webkit-background-clip: text;
@@ -66,7 +67,7 @@ body {
 }
 
 .dynamic-gradient-text {
-    width:fit-content;
+    width: fit-content;
     background: var(--text-gradient);
     background-size: 250% 250%;
     background-clip: text;
@@ -79,26 +80,47 @@ body {
     animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
+
 /*Commenter compatibilité / un peu le code ?*/
+
+
 /* Définition des keyframes pour l'utilisation des transition dans le .dynamic-gradient-text */
 
 @-webkit-keyframes fade {
-    0%{background-position:0% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
-}
-@-moz-keyframes fade {
-    0%{background-position:0% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
-}
-@keyframes fade {
-    0%{background-position:0% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
+    0% {
+        background-position: 0% 0%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-position: 0% 0%
+    }
 }
 
-/*  */
+@-moz-keyframes fade {
+    0% {
+        background-position: 0% 0%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-position: 0% 0%
+    }
+}
+
+@keyframes fade {
+    0% {
+        background-position: 0% 0%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-position: 0% 0%
+    }
+}
 
 #container {
     display: flex;
@@ -112,46 +134,50 @@ body {
 main {
     /*Définition de la taille de la page*/
     width: 1240px;
-    /* height: 1754px; */
-    margin: 35px 0;
-    padding-bottom: 35px;
+    margin: 35px;
     /*Mise en page (ombre autour du container, légère bordure pour améliorer la discernation de l'élément, coins arrondis)*/
     box-shadow: 0px 0px 30px var(--clear-white);
     border-radius: 5px;
     color: aliceblue;
+    padding-bottom: 35px;
+    display: grid;
+    grid-template-rows: 250px 1fr;
+    gap: 3rem;
 }
+
 
 /* Header */
 
 header {
-    display: flex;
     font-family: "SF Pro Semibold";
-    box-shadow:  0px 20px 18px -9px black;
-    justify-content: space-between;
-    margin-bottom: 50px;
+    box-shadow: 0px 20px 18px -9px black;
+    display: flex;
+    justify-content: center;
 }
+
 
 /* Image de l'en-tête */
 
 header picture {
     border-radius: 12.5px;
     background: var(--bg-gradient);
-    max-width: 250px;
-    max-height: 250px;
-    align-content: center;
+    height: 250px;
+    width: 250px;
     margin-left: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 header picture img {
-    max-width: inherit;
-    max-height: inherit;
+    width: auto;
+    height: inherit;
 }
+
 
 /* Texte de l'en-tête */
 
 header #head-text {
     width: fit-content;
-    line-height: 1em;
     text-align: center;
     align-self: center;
     margin: 0 auto;
@@ -159,14 +185,13 @@ header #head-text {
 
 header #head-text h1,
 header #head-text h2 {
-    flex-grow: 1;
-    /* margin:30px; */
+    margin: 0;
 }
+
 
 /* Partie "Contact" du header */
 
 header #contact {
-    width: 250px;
     margin-right: 25px;
 }
 
@@ -175,15 +200,14 @@ header #contact h1 {
     margin-bottom: 0;
 }
 
-
 header #contact ul {
     margin-left: 1em;
     margin-top: 10px;
     padding: 0;
-    display: flex;
     list-style-type: none;
-    flex-direction: column;
     align-items: flex-start;
+    display: flex;
+    flex-direction: column;
 }
 
 header #contact-content li:nth-of-type(even) {
@@ -191,44 +215,45 @@ header #contact-content li:nth-of-type(even) {
     font-family: "SF Pro Light";
 }
 
+
 /* Règles du contenu principal */
 
-#under-header{
-    display:flex;
+#under-header {
+    display: grid;
+    grid-template-columns: 275px 1fr 275px;
     font-size: 1.25em;
 }
 
+
 /* Contenu aside  */
 
-#under-header aside{
-    margin-left: 25px;
-    min-width: 250px;
-    display:flex;
+#under-header #my-infos {
+    display: flex;
     flex-direction: column;
+    margin-left: 25px;
 }
 
-#under-header aside h2{
-    font-size: 1.5em;
-}
-
-#under-header aside article{
+#under-header #my-infos article {
     min-width: fit-content;
     padding: 15px;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
     box-shadow: 0px 0px 15px var(--clear-white);
     border: 1px solid aliceblue;
     border-radius: 5px;
 }
 
-#under-header aside article h2 {
+#under-header #my-infos article h2 {
     margin: 0.5em;
 }
 
+
 /* Règles de la section principale du CV */
 
-/* #under-header #main-content{
-    width: 500px;
+
+/* #under-header #main-content {
+    grid-area: center;
 } */
+
 
 /* Règles générales communes des articles du contenu principal */
 
@@ -243,11 +268,7 @@ header #contact-content li:nth-of-type(even) {
 
 #under-header #main-content article h3,
 #under-header #main-content article p {
-    margin:0;   
-}
-
-#under-header #main-content article li {
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 #under-header #main-content article ul {
@@ -256,7 +277,11 @@ header #contact-content li:nth-of-type(even) {
     list-style-type: none;
 }
 
-#under-header #main-content article h2 {    
+#under-header #main-content article li {
+    margin-bottom: 10px;
+}
+
+#under-header #main-content article h2 {
     margin: 0;
 }
 
@@ -265,56 +290,35 @@ header #contact-content li:nth-of-type(even) {
     letter-spacing: 1px;
 }
 
-/* Aside compétences: barres de progression, règles générales de l'article */
 
-#under-header #competences{
+/* Version finalement retenue du aside compétences: liste des compétences et courte description */
+
+#under-header #competences {
     margin: 0;
-    padding-right: 25px;
+    margin-right: 25px;
 }
 
-#under-header #competences h2 {    
-    margin: 10px 0;
+#under-header #competences h2 {
+    margin: 0.25em 0;
 }
 
-#under-header #competences label{
-    display: block;
-    margin-left: 15px;
+#under-header #competences ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-#under-header #competences progress{
-    margin-left: 15px;
-    margin-bottom: 10px;
-    height: 1.25em;
-    color: aliceblue;
-    position: relative;
-    -webkit-appearance: none;
+#under-header #competences li {
+    margin-bottom: 5px;
 }
 
-#under-header #competences progress[value]::before{
-    position: absolute;
-    content: attr(value) "%";
-    align-items: center;
-    margin-left: 5px;
+#under-header #competences h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--clear-white);
 }
 
-@supports selector(::-webkit-progress-bar) {
-    #under-header #competences ::-webkit-progress-bar{
-        background-color: var(--clear-white);
-        border-radius: 4px;
-    }
-    #under-header #competences ::-webkit-progress-value{
-        background: var(--pgbar-gradient);
-        border-radius: 4px;
-    }
-}
-
-@supports selector(::-moz-progress-bar) {
-    #under-header #main-content #competences ::-moz-progress-bar{
-        background-color: aliceblue;
-        border-radius: 4px;
-    }
-    #under-header #main-content #competences ::-moz-progress-value{
-        background: var(--pgbar-gradient);
-        border-radius: 4px;
-    }
+#under-header #competences p {
+    margin: 0;
+    padding-left: 1em;
+    font-size: 0.75em;
 }
