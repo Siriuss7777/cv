@@ -141,8 +141,9 @@ main {
     color: aliceblue;
     padding-bottom: 35px;
     display: grid;
-    grid-template-rows: 250px 1fr;
+    grid-template-rows: var(--square-size) 1fr;
     gap: 3rem;
+    --square-size: 22.5%;
 }
 
 
@@ -161,8 +162,8 @@ header {
 header picture {
     border-radius: 12.5px;
     background: var(--bg-gradient);
-    height: 250px;
-    width: 250px;
+    height: var(--square-size);
+    width: var(--square-size);
     margin-left: 25px;
     display: flex;
     justify-content: center;
