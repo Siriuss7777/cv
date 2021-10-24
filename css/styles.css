@@ -279,6 +279,8 @@ header #contact-content li:nth-of-type(even) {
 
 #under-header #competences {
     margin-right: 25px;
+    display:flex;
+    flex-direction: column;
 }
 
 #under-header #competences h2 {
