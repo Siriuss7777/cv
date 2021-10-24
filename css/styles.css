@@ -281,10 +281,15 @@ header #contact-content li:nth-of-type(even) {
     margin-right: 25px;
 }
 
+#under-header #competences h2 {
+    margin: 0.5rem 0;
+    font-size: 2em;
+}
+
 #under-header #competences ul {
     list-style-type: none;
     padding-left: 0.5rem;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 #under-header #competences h3 {
