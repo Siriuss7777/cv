@@ -1,4 +1,9 @@
-﻿@font-face {
+﻿* {
+    margin:0;
+    padding: 0;
+}
+
+@font-face {
     font-family: 'SF Pro Light';
     src: url('../fonts/webfontkit-sf/SFProDisplay-Light.eot');
     src: url('../fonts/webfontkit-sf/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/webfontkit-sf/SFProDisplay-Light.woff2') format('woff2'), url('../fonts/webfontkit-sf/SFProDisplay-Light.woff') format('woff'), url('../fonts/webfontkit-sf/SFProDisplay-Light.ttf') format('truetype'), url('../fonts/webfontkit-sf/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
@@ -10,7 +15,6 @@
     src: url('../fonts/webfontkit-sf/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.woff2') format('woff2'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.woff') format('woff'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.ttf') format('truetype'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.svg#SFProDisplay-Semibold') format('svg');
     font-weight: bold;
     font-style: normal;
-    font-display: swap;
 }
 
 :root {
@@ -24,6 +28,8 @@
     --pgbar-gradient: linear-gradient(to left, var(--tint-1), var(--tint-3));
     --bg-gradient: linear-gradient(95deg, var(--tint-1), var(--tint-3));
     --text-gradient: linear-gradient(to right, var(--tint-1), var(--tint-3), var(--tint-1));
+
+    
 }
 
 body {
@@ -36,28 +42,14 @@ body {
 
 /* Définition des différentes classes de texte */
 
-.medium-text {
-    font-size: 1.5em;
-}
-
-.large-text {
-    font-size: 1.75em;
-}
-
-.larger-text {
-    font-size: 2em;
-}
-
-.very-large-text {
-    font-size: 3.5em
-}
-
 .bold-text {
     font-family: "SF Pro Semibold";
 }
 
+
 .gradient-text {
     width: fit-content;
+    overflow: visible;
     background: var(--bg-gradient);
     background-clip: text;
     -webkit-background-clip: text;
@@ -133,17 +125,17 @@ body {
 
 main {
     /*Définition de la taille de la page*/
+    min-width: 1000px;
     width: 1240px;
     margin: 35px;
     /*Mise en page (ombre autour du container, légère bordure pour améliorer la discernation de l'élément, coins arrondis)*/
     box-shadow: 0px 0px 30px var(--clear-white);
     border-radius: 5px;
     color: aliceblue;
-    padding-bottom: 35px;
     display: grid;
-    grid-template-rows: var(--square-size) 1fr;
+    grid-template-rows: 250px 22.5%;
     gap: 3rem;
-    --square-size: 22.5%;
+    padding-bottom: 3.5rem;
 }
 
 
@@ -152,21 +144,20 @@ main {
 header {
     font-family: "SF Pro Semibold";
     box-shadow: 0px 20px 18px -9px black;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(275px, 22.5%) 55% 22.5%;
 }
 
 
 /* Image de l'en-tête */
 
 header picture {
+    display: flex;
     border-radius: 12.5px;
     background: var(--bg-gradient);
-    height: var(--square-size);
-    width: var(--square-size);
-    margin-left: 25px;
-    display: flex;
+    height: 250px;
     justify-content: center;
+    margin-left: 25px;
 }
 
 header picture img {
@@ -184,11 +175,13 @@ header #head-text {
     margin: 0 auto;
 }
 
-header #head-text h1,
-header #head-text h2 {
-    margin: 0;
+header #head-text h1 {
+    font-size: 3.5em;
 }
 
+header #head-text h2 {
+    font-size: 1.75em;
+}
 
 /* Partie "Contact" du header */
 
@@ -198,17 +191,15 @@ header #contact {
 
 header #contact h1 {
     margin-top: 25px;
-    margin-bottom: 0;
 }
 
 header #contact ul {
     margin-left: 1em;
     margin-top: 10px;
-    padding: 0;
-    list-style-type: none;
-    align-items: flex-start;
     display: flex;
+    list-style-type: none;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 header #contact-content li:nth-of-type(even) {
@@ -220,13 +211,12 @@ header #contact-content li:nth-of-type(even) {
 /* Règles du contenu principal */
 
 #under-header {
-    display: grid;
-    grid-template-columns: 275px 1fr 275px;
-    font-size: 1.25em;
+    display: grid;  
+    grid-template-columns: 22.5% 55% 22.5%;
 }
 
 
-/* Contenu aside  */
+/* Contenu aside -- informations personelles  */
 
 #under-header #my-infos {
     display: flex;
@@ -245,45 +235,38 @@ header #contact-content li:nth-of-type(even) {
 
 #under-header #my-infos article h2 {
     margin: 0.5em;
+    font-size: 2em;
+}
+
+#under-header #my-infos article ul {
+    padding-left: 2em;
+    margin: 1em 0;
+    font-size: 1.25em;
 }
 
 
-/* Règles de la section principale du CV */
+
+/* RÈGLES GÉNÉRALES DU `main-content` */
 
 
-/* #under-header #main-content {
-    grid-area: center;
-} */
 
-
-/* Règles générales communes des articles du contenu principal */
-
-#under-header #main-content article {
-    margin: 0 50px 0 50px;
-    font-size: 1.15em;
+#under-header #main-content {
+    padding: 0 2.75rem;
 }
 
 #under-header #main-content article h2 {
-    margin-bottom: 10px;
-}
-
-#under-header #main-content article h3,
-#under-header #main-content article p {
-    margin: 0;
+    font-size: 2.8em;
 }
 
 #under-header #main-content article ul {
     padding: 0;
     margin-top: 0;
     list-style-type: none;
+    font-size: 1.5em;
 }
 
 #under-header #main-content article li {
     margin-bottom: 10px;
-}
-
-#under-header #main-content article h2 {
-    margin: 0;
 }
 
 #under-header #main-content article ul h3 {
@@ -295,31 +278,20 @@ header #contact-content li:nth-of-type(even) {
 /* Version finalement retenue du aside compétences: liste des compétences et courte description */
 
 #under-header #competences {
-    margin: 0;
     margin-right: 25px;
-}
-
-#under-header #competences h2 {
-    margin: 0.25em 0;
 }
 
 #under-header #competences ul {
     list-style-type: none;
-    padding: 0;
-}
-
-#under-header #competences li {
-    margin-bottom: 5px;
+    padding-left: 0.5rem;
+    font-size: 1.1em;
 }
 
 #under-header #competences h3 {
-    margin: 0;
-    font-size: 1.1em;
-    color: var(--clear-white);
+    color: var(--clear-white); 
 }
 
 #under-header #competences p {
-    margin: 0;
     padding-left: 1em;
-    font-size: 0.75em;
+    margin-bottom: 0.2rem;
 }
