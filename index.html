@@ -2,16 +2,14 @@
 <html lang="fr">
 
 <head>
-    <title>CV Bastien Le Gall G3S1</title>
+    <title>Projet CV</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="icon" type="image.png" href="images/pic.png">
 </head>
 
 <body>
     <div id="container">
         <main>
-
-            <header>
+            <header class="bold-text">
 
                 <picture>
                     <img src="images/pic.png" alt="">
@@ -23,40 +21,42 @@
                 </div>
 
                 <div id="contact">
-                    <h1 class="xxx-large-text dynamic-gradient-text">Contact</h1>
+                    <h2 class="large-text dynamic-gradient-text">Contact</h2>
 
                     <ul id="contact-content">
                         <li>N° téléphone:</li>
-                        <li>00-07-77-77-77</li>
+                        <li class="field">00-07-77-77-77</li>
                         <li>Mail:</li>
-                        <li>bastien.le-gall@etu.univ-lyon1.fr</li>
+                        <li class="field mail gradient-text">
+                            <a href="mailto:bastien.le-gall@etu.univ-lyon1.fr">
+                                bastien.le-gall@etu.univ-lyon1.fr
+                            </a>
+                        </li>
                         <li>Adresse:</li>
-                        <li>million, liberté... sheesh</li>
+                        <li class="field">million, liberté... sheesh</li>
                     </ul>
 
                 </div>
 
             </header>
-
             <section id="under-header">
 
                 <aside id="my-infos">
                     <article id="hobbies">
                         <h2 class="gradient-text">Hobbies</h2>
                         <ul>
+                            <li>Informatique</li>
                             <li>Rugby</li>
                             <li>Jeux Vidéos</li>
-                            <li>Informatique</li>
-                            <li>Éric Zemmour</li>
+                            <li>DIY/Bricolage</li>
                         </ul>
                     </article>
                     <article id="languages">
                         <h2 class="gradient-text">Langues</h2>
                         <ul>
-                            <li>Français [voltaire]</li>
+                            <li>Français [Voltaire]</li>
                             <li>Anglais B2</li>
                             <li>Espagnol A2</li>
-                            <li>Éric Zemmour C2</li>
                         </ul>
                     </article>
                 </aside>
@@ -89,7 +89,7 @@
                         </ul>
                     </article>
                     <article id="experience">
-                        <h2 class="larger-text bold-text gradient-text">Expérience</h2>
+                        <h2 class="bold-text gradient-text">Expérience</h2>
                         <ul>
                             <li>
                                 <h3>Stage en entreprise</h3>
@@ -97,62 +97,35 @@
                                 <p>Stage dans la section EducTice de l'ifé, 2018</p>
                             </li>
                             <li>
-                                <h3>Lorem ipsum dolor sit amet</h3>
+                                <h3>Lorem ipsum</h3>
                                 <p>???</p>
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est accusamus ipsum
-                                    officiis nam, veritatis placeat earum dicta expedita similique aliquam nisi et ullam
-                                    rerum quis accusantium nulla, sed praesentium.</p>
-                            </li>
-                            <li>
-                                <h3>Lorem ipsum dolor sit amet</h3>
-                                <p>???</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos repellat est
-                                    provident doloribus, nulla, nihil perferendis rerum praesentium autem doloremque
-                                    facilis quo consectetur atque recusandae. Aut, ea? Fugit,
-                                    atque? Ab.</p>
+                                    officiis nam, veritatis placeat earum dicta.</p>
                             </li>
                         </ul>
                     </article>
 
+
                 </section>
 
                 <aside id="competences">
-                    <h2 class="large-text gradient-text">Compétences</h2>
-                    <ul>
-                        <li>
-                            <h3>Hardware</h3>
-                            <p>Connaissances avancées en montage et conception d'ordinateurs fixes</p>
-                            <p>Montage et maintenance de mon PC personnel</p>
-                        </li>
-                        <li>
-                            <h3>Python</h3>
-                            <p>Connaissances avancées </p>
-                            <p>Développement d'un bot Discord (~1900 lignes) et de plusieurs
-                                petites applications</p>
-                        </li>
-                        <li>
-                            <h3>Réseaux</h3>
-                            <p>[FUTUR: Certif. Cisco]</p>
-                        </li>
-                        <li>
-                            <h3>Bases de données</h3>
-                            <p>Connaissances intermédiaires en SQL, phpMyAdmin</p>
-                        </li>
-                        <li>
-                            <h3>Web</h3>
-                            <p>Connaissances intermédiaires en HTML/CSS & en Design</p>
-                            <p>Concepton complète de ce CV</p>
-                        </li>
-                        <li>
-                            <h3>Langage C</h3>
-                            <p>Conaissances naissantes (?????)</p>
-                        </li>
-                    </ul>
-                </aside>
-
+                    <h2 class="medium-text gradient-text">Compétences</h2>
+                    <div id="progress-bars">
+                        <label>Hardware</label>
+                        <progress value="75" max="100"></progress>
+                        <label>Python</label>
+                        <progress value="65" max="100"></progress>
+                        <label>Bases de données</label>
+                        <progress value="60" max="100"></progress>
+                        <label>Web</label>
+                        <progress value="40" max="100"></progress>
+                        <label>C</label>
+                        <progress value="30" max="100"></progress>
+                    </div>
             </section>
 
+            </aside>
 
         </main>
     </div>

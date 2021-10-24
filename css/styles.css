@@ -1,7 +1,11 @@
-﻿* {
-    margin:0;
+/* CSS Reset */
+
+* {
+    margin: 0;
     padding: 0;
 }
+
+/* Importation des polices */
 
 @font-face {
     font-family: 'SF Pro Light';
@@ -13,43 +17,41 @@
     font-family: 'SF Pro Semibold';
     src: url('../fonts/webfontkit-sf/SFProDisplay-Semibold.eot');
     src: url('../fonts/webfontkit-sf/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.woff2') format('woff2'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.woff') format('woff'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.ttf') format('truetype'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.svg#SFProDisplay-Semibold') format('svg');
-    font-weight: bold;
-    font-style: normal;
 }
+
+/* Définition des variables globales */
 
 :root {
     /*Définition de la palette de couleurs*/
     --tint-1: #e06f4d;
     --tint-2: #da4d69;
     --tint-3: #3254fc;
-    --black: #0f0f0f;
+    --black: #111111;
     --very-clear-white: #ebf6fe10;
     --clear-white: rgba(236, 246, 254, 0.7);
+    /* Définition des dégradés utlisés dans le CSS */
     --pgbar-gradient: linear-gradient(to left, var(--tint-1), var(--tint-3));
     --bg-gradient: linear-gradient(95deg, var(--tint-1), var(--tint-3));
     --text-gradient: linear-gradient(to right, var(--tint-1), var(--tint-3), var(--tint-1));
-
-    
 }
+
+/* Définition de l'apparence générale de la page */
 
 body {
     font-family: "SF Pro Light", sans-serif;
-    margin: 0;
     background-color: black;
     scroll-behavior: smooth;
 }
 
-
 /* Définition des différentes classes de texte */
 
 .bold-text {
-    font-family: "SF Pro Semibold";
+    font-family: "SF Pro Semibold", sans-serif;
+    font-weight: bold;
 }
-
 
 .gradient-text {
     width: fit-content;
-    overflow: visible;
     background: var(--bg-gradient);
     background-clip: text;
     -webkit-background-clip: text;
@@ -72,9 +74,7 @@ body {
     animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
-
 /*Commenter compatibilité / un peu le code ?*/
-
 
 /* Définition des keyframes pour l'utilisation des transition dans le .dynamic-gradient-text */
 
@@ -114,57 +114,55 @@ body {
     }
 }
 
+/*  */
+
 #container {
     display: flex;
     justify-content: center;
     background: linear-gradient(var(--black), black) no-repeat;
 }
 
-
 /* Conteneur de la page du CV */
 
 main {
-    /*Définition de la taille de la page*/
     width: 1240px;
-    height: 1653px;
-    margin: 35px;
+    margin: 1rem;
+    padding-bottom: 35px;
     /*Mise en page (ombre autour du container, légère bordure pour améliorer la discernation de l'élément, coins arrondis)*/
     box-shadow: 0px 0px 30px var(--clear-white);
     border-radius: 5px;
     color: aliceblue;
+
     display: grid;
     grid-template-rows: 250px 1fr;
     gap: 3rem;
-    padding-bottom: 3.5rem;
 }
-
 
 /* Header */
 
 header {
-    font-family: "SF Pro Semibold";
     box-shadow: 0px 20px 18px -9px black;
-    display: grid;
-    grid-template-columns: 275px 690px 275px;
-}
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /* Image de l'en-tête */
 
 header picture {
-    display: flex;
-    border-radius: 12.5px;
+    max-width: 250px;
+    max-height: 250px;
+    margin-left: 1.5rem;
+
     background: var(--bg-gradient);
-    height: 250px;
-    justify-content: center;
-    margin-left: 25px;
+    border-radius: 12.5px;
 }
 
 header picture img {
-    width: auto;
-    height: inherit;
+    max-width: inherit;
+    max-height: inherit;
 }
-
 
 /* Texte de l'en-tête */
 
@@ -172,7 +170,6 @@ header #head-text {
     width: fit-content;
     text-align: center;
     align-self: center;
-    margin: 0 auto;
 }
 
 header #head-text h1 {
@@ -186,45 +183,67 @@ header #head-text h2 {
 /* Partie "Contact" du header */
 
 header #contact {
-    margin-right: 25px;
+    width: 250px;
+    margin-right: 1.5rem;
 }
 
-header #contact h1 {
-    margin-top: 25px;
+header #contact h2{
+    font-size: 2em;
+    margin-bottom: 0.5rem;
 }
 
 header #contact ul {
-    margin-left: 1em;
-    margin-top: 10px;
-    display: flex;
+    margin-left: 1rem;
+    
     list-style-type: none;
-    flex-direction: column;
+    
+    display: flex;
     align-items: flex-start;
+    flex-direction: column;
 }
 
-header #contact-content li:nth-of-type(even) {
-    padding-left: 1em;
+header #contact-content li.field {
+    font-size: 1em;
+    padding-left: 1rem;
     font-family: "SF Pro Light";
+    font-weight: normal;
 }
 
+header #contact-content li.mail a{
+    text-decoration: none;
+    -moz-text-fill-color: aliceblue;
+    -webkit-text-fill-color: aliceblue;
+}
+
+header #contact-content li.mail a:hover{
+    font-weight: bold;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
 
 /* Règles du contenu principal */
 
 #under-header {
-    display: grid;  
-    grid-template-columns: 275px 690px 275px;
+    display: flex;
+    font-size: 1.25em;
 }
 
-
-/* Contenu aside -- informations personelles  */
+/* Règles des deux balises aside  */
 
 #under-header aside {
+    min-width: 250px;
     display: flex;
     flex-direction: column;
 }
 
-#under-header #my-infos {
-    margin-left: 25px;
+/* Règles du aside de gauche contenant mes infos personnelles */
+
+#under-header #my-infos{
+    margin-left: 1.5rem;
+}
+
+#under-header #my-infos h2 {
+    font-size: 1.5em;
 }
 
 #under-header #my-infos article {
@@ -236,40 +255,41 @@ header #contact-content li:nth-of-type(even) {
     border-radius: 5px;
 }
 
+#under-header #my-infos ul {
+    padding-left: 2.5rem;
+    margin: 1.5rem 0;
+}
+
 #under-header #my-infos article h2 {
     margin: 0.5em;
-    font-size: 2em;
 }
 
-#under-header #my-infos article ul {
-    padding-left: 2em;
-    margin: 1em 0;
-    font-size: 1.25em;
-}
+/* Règles de la section principale du CV */
 
+/* #under-header #main-content{
+    width: 500px;
+} */
 
-
-/* RÈGLES GÉNÉRALES DU `main-content` */
-
-
+/* Règles générales communes des articles du contenu principal */
 
 #under-header #main-content {
-    padding: 0 2.75rem;
+    padding: 0 2.5rem;
+}
+
+#under-header #main-content article {
+    font-size: 1.2em;
 }
 
 #under-header #main-content article h2 {
-    font-size: 2.8em;
-}
-
-#under-header #main-content article ul {
-    padding: 0;
-    margin-top: 0;
-    list-style-type: none;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 #under-header #main-content article li {
     margin-bottom: 10px;
+}
+
+#under-header #main-content article ul {
+    list-style-type: none;
 }
 
 #under-header #main-content article ul h3 {
@@ -277,31 +297,56 @@ header #contact-content li:nth-of-type(even) {
     letter-spacing: 1px;
 }
 
-
-/* Version finalement retenue du aside compétences: liste des compétences et courte description */
+/* Aside compétences: barres de progression, règles générales de l'article */
 
 #under-header #competences {
-    margin-right: 25px;
-    display:flex;
-    flex-direction: column;
+    margin-right: 1.5rem;
 }
 
 #under-header #competences h2 {
-    margin: 0.5rem 0;
-    font-size: 2em;
+    margin: 10px 0;
+    font-size: 1.5em;
 }
 
-#under-header #competences ul {
-    list-style-type: none;
-    padding-left: 0.5rem;
-    font-size: 1em;
+#under-header #competences label {
+    display: block;
+    margin-left: 15px;
 }
 
-#under-header #competences h3 {
-    color: var(--clear-white); 
+#under-header #competences progress {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    height: 1.25em;
+    color: aliceblue;
+    position: relative;
+    -webkit-appearance: none;
 }
 
-#under-header #competences p {
-    padding-left: 1em;
-    margin-bottom: 0.2rem;
+#under-header #competences progress[value]::before {
+    position: absolute;
+    content: attr(value) "%";
+    align-items: center;
+    margin-left: 5px;
+}
+
+@supports selector(::-webkit-progress-bar) {
+    #under-header #competences ::-webkit-progress-bar {
+        background-color: var(--clear-white);
+        border-radius: 4px;
+    }
+    #under-header #competences ::-webkit-progress-value {
+        background: var(--pgbar-gradient);
+        border-radius: 4px;
+    }
+}
+
+@supports selector(::-moz-progress-bar) {
+    #under-header #main-content #competences ::-moz-progress-bar {
+        background-color: aliceblue;
+        border-radius: 4px;
+    }
+    #under-header #main-content #competences ::-moz-progress-value {
+        background: var(--pgbar-gradient);
+        border-radius: 4px;
+    }
 }
