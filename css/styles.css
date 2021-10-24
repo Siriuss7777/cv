@@ -218,9 +218,12 @@ header #contact-content li:nth-of-type(even) {
 
 /* Contenu aside -- informations personelles  */
 
-#under-header #my-infos {
+#under-header aside {
     display: flex;
     flex-direction: column;
+}
+
+#under-header #my-infos {
     margin-left: 25px;
 }
 
