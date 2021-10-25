@@ -27,7 +27,7 @@
     --tint-2: #da4d69;
     --tint-3: #3254fc;
     --clear-black: #111111;
-    --very-clear-white: rgb(235,246,254,0.1);
+    --very-clear-white: rgb(235, 246, 254, 0.1);
     --clear-white: rgba(236, 246, 254, 0.7);
     /* Définition des dégradés utlisés dans le CSS */
     --pgbar-gradient: linear-gradient(to left, var(--tint-1), var(--tint-3));
@@ -40,7 +40,7 @@
 body {
     font-family: "SF Pro Light", sans-serif;
     background-color: black;
-    scroll-behavior: smooth;    
+    scroll-behavior: smooth;
 }
 
 /* Définition des différentes classes de texte */
@@ -49,6 +49,12 @@ body {
     font-family: "SF Pro Semibold", sans-serif;
     font-weight: bold;
 }
+
+    /* Pour les classes gradient-text et dynamic-gradient-text, les attributs background-clip et text-fill-color 
+    sont édités plusieurs fois avec un webkit par ligne, afin de rendre la class cross-compatible */
+
+    /* L'objectif de ces classes est de d'abord restreindre le fond appliqué à l'élément au texte puis de rendre le texte
+    transparent afin de donner l'illusion que le texte a pour couleur le gradient appliqué à l'élément */
 
 .gradient-text {
     width: fit-content;
@@ -60,8 +66,10 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+    /* Pour animer le dégradé de fond du texte, je crée un background gradient plus grand que l'élément dans lequel le texte est,
+    puis je fais bouger le background en question pour que la couleur du texte bouge  */
+
 .dynamic-gradient-text {
-    width: fit-content;
     background: var(--text-gradient);
     background-size: 250% 250%;
     background-clip: text;
@@ -74,11 +82,12 @@ body {
     animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
-/*Commenter compatibilité / un peu le code ?*/
-
 /* Définition des keyframes pour l'utilisation des transition dans le .dynamic-gradient-text */
 
+    /* Encore dans un souci de cross-compatibilité, on définira l'animation fade plusieurs fois */
+
 @-webkit-keyframes fade {
+    /*  */
     0% {
         background-position: 0% 0%
     }
@@ -114,7 +123,6 @@ body {
     }
 }
 
-/*  */
 
 #container {
     display: flex;
@@ -132,7 +140,6 @@ main {
     box-shadow: 0px 0px 30px var(--clear-white);
     border-radius: 5px;
     color: aliceblue;
-
     display: grid;
     grid-template-rows: 250px 1fr;
     gap: 3rem;
@@ -142,7 +149,6 @@ main {
 
 header {
     box-shadow: 0px 20px 18px -9px black;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -154,10 +160,9 @@ header picture {
     width: 250px;
     height: 250px;
     margin-left: 1.5rem;
-
     border-radius: 12.5px;
     display: flex;
-    justify-content : center;
+    justify-content: center;
     overflow: hidden;
 }
 
@@ -189,16 +194,14 @@ header #contact {
     margin-right: 1.5rem;
 }
 
-header #contact h2{
+header #contact h2 {
     font-size: 2em;
     margin-bottom: 0.5rem;
 }
 
 header #contact ul {
     margin-left: 1rem;
-    
     list-style-type: none;
-    
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -211,13 +214,13 @@ header #contact-content li.field {
     font-weight: normal;
 }
 
-header #contact-content li.mail a{
+header #contact-content li.mail a {
     text-decoration: none;
     -moz-text-fill-color: aliceblue;
     -webkit-text-fill-color: aliceblue;
 }
 
-header #contact-content li.mail a:hover{
+header #contact-content li.mail a:hover {
     font-weight: bold;
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
@@ -240,7 +243,7 @@ header #contact-content li.mail a:hover{
 
 /* Règles du aside de gauche contenant mes infos personnelles */
 
-#under-header #my-infos{
+#under-header #my-infos {
     margin-left: 1.5rem;
 }
 
