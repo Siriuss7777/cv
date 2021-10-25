@@ -26,8 +26,8 @@
     --tint-1: #e06f4d;
     --tint-2: #da4d69;
     --tint-3: #3254fc;
-    --black: #111111;
-    --very-clear-white: #ebf6fe10;
+    --clear-black: #111111;
+    --very-clear-white: rgb(235,246,254,0.1);
     --clear-white: rgba(236, 246, 254, 0.7);
     /* Définition des dégradés utlisés dans le CSS */
     --pgbar-gradient: linear-gradient(to left, var(--tint-1), var(--tint-3));
@@ -40,7 +40,7 @@
 body {
     font-family: "SF Pro Light", sans-serif;
     background-color: black;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;    
 }
 
 /* Définition des différentes classes de texte */
@@ -119,7 +119,7 @@ body {
 #container {
     display: flex;
     justify-content: center;
-    background: linear-gradient(var(--black), black) no-repeat;
+    background: linear-gradient(var(--clear-black), black) no-repeat;
 }
 
 /* Conteneur de la page du CV */
@@ -151,17 +151,19 @@ header {
 /* Image de l'en-tête */
 
 header picture {
-    max-width: 250px;
-    max-height: 250px;
+    width: 250px;
+    height: 250px;
     margin-left: 1.5rem;
 
-    background: var(--bg-gradient);
     border-radius: 12.5px;
+    display: flex;
+    justify-content : center;
+    overflow: hidden;
 }
 
 header picture img {
-    max-width: inherit;
-    max-height: inherit;
+    width: 100%;
+    height: 100%;
 }
 
 /* Texte de l'en-tête */
@@ -242,10 +244,6 @@ header #contact-content li.mail a:hover{
     margin-left: 1.5rem;
 }
 
-#under-header #my-infos h2 {
-    font-size: 1.5em;
-}
-
 #under-header #my-infos article {
     min-width: fit-content;
     padding: 15px;
@@ -261,16 +259,11 @@ header #contact-content li.mail a:hover{
 }
 
 #under-header #my-infos article h2 {
+    font-size: 1.5em;
     margin: 0.5em;
 }
 
 /* Règles de la section principale du CV */
-
-/* #under-header #main-content{
-    width: 500px;
-} */
-
-/* Règles générales communes des articles du contenu principal */
 
 #under-header #main-content {
     padding: 0 2.5rem;
@@ -282,10 +275,6 @@ header #contact-content li.mail a:hover{
 
 #under-header #main-content article h2 {
     font-size: 2em;
-}
-
-#under-header #main-content article li {
-    margin-bottom: 10px;
 }
 
 #under-header #main-content article ul {
@@ -313,6 +302,8 @@ header #contact-content li.mail a:hover{
     margin-left: 15px;
 }
 
+/* Progress bars */
+
 #under-header #competences progress {
     margin-left: 15px;
     margin-bottom: 10px;
@@ -327,26 +318,27 @@ header #contact-content li.mail a:hover{
     content: attr(value) "%";
     align-items: center;
     margin-left: 5px;
+    color: var(--clear-black);
 }
 
 @supports selector(::-webkit-progress-bar) {
     #under-header #competences ::-webkit-progress-bar {
-        background-color: var(--clear-white);
+        background: var(--very-clear-white);
         border-radius: 4px;
     }
     #under-header #competences ::-webkit-progress-value {
-        background: var(--pgbar-gradient);
+        background: var(--clear-white);
         border-radius: 4px;
     }
 }
 
 @supports selector(::-moz-progress-bar) {
     #under-header #main-content #competences ::-moz-progress-bar {
-        background-color: aliceblue;
+        background: var(--very-clear-white);
         border-radius: 4px;
     }
     #under-header #main-content #competences ::-moz-progress-value {
-        background: var(--pgbar-gradient);
+        background: var(--very-clear-white);
         border-radius: 4px;
     }
 }
