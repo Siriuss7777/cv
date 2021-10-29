@@ -4,6 +4,6 @@ https://siriuss7777.github.io/cv
 
 CV Réalisé sur Brave, devrait fonctionner sur Mozilla
 
-Charte graphique inspirée des visuels d'Apple pour la puce M1
+Charte graphique inspirée des visuels d'Apple pour la puce M1, le reste entièrement fait main
 
 ![inspiration](images/Inspiration.jpg)
