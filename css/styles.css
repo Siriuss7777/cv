@@ -1,11 +1,16 @@
-/* CSS Reset */
+﻿/* CSS Reset */
 
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
-/* Importation des polices */
+
+
+/* ================================== Polices d'écriture ================================== */
+
+
 
 @font-face {
     font-family: 'SF Pro Light';
@@ -19,7 +24,11 @@
     src: url('../fonts/webfontkit-sf/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.woff2') format('woff2'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.woff') format('woff'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.ttf') format('truetype'), url('../fonts/webfontkit-sf/SFProDisplay-Semibold.svg#SFProDisplay-Semibold') format('svg');
 }
 
-/* Définition des variables globales */
+
+
+/* ================================== Variables globales ================================== */
+
+
 
 :root {
     /*Définition de la palette de couleurs*/
@@ -35,7 +44,11 @@
     --text-gradient: linear-gradient(to right, var(--tint-1), var(--tint-3), var(--tint-1));
 }
 
-/* Définition de l'apparence générale de la page */
+
+
+/* ================================== Apparence générale de la page ================================== */
+
+
 
 body {
     font-family: "SF Pro Light", sans-serif;
@@ -43,10 +56,14 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Définition des différentes classes de texte */
+
+
+/* ================================== Classes générales ================================== */
+
+
 
 .bold-text {
-    font-family: "SF Pro Semibold", sans-serif;
+    font-family: "SF Pro Semibold", sans-serif; /* J'applique d'abord la police SF Pro Semibold, puis sans-serif si la première police n'est pas reconnue */
     font-weight: bold;
 }
 
@@ -57,37 +74,47 @@ body {
     transparent afin de donner l'illusion que le texte a pour couleur le gradient appliqué à l'élément */
 
 .gradient-text {
-    width: fit-content;
-    background: var(--bg-gradient);
+    width: fit-content; /* Ajuste le background du texte à sa largeur, afin que le gradient commence au début du texte et finisse à sa fin */
+    background: var(--bg-gradient); /* Applique le gradient au fond du texte */
+    /* Comme dit à la l.57, ici je restreins le fond du texte à celui-ci */
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
+    /* Et ici, je rends le texte transparent pour qu'on puisse voir le fond en gradient */
+    color: transparent;
 }
 
-    /* Pour animer le dégradé de fond du texte, je crée un background gradient plus grand que l'élément dans lequel le texte est,
+    /* Pour animer le gradient de fond du texte, je crée un background gradient plus grand que l'élément dans lequel le texte est,
     puis je fais bouger le background en question pour que la couleur du texte bouge  */
 
 .dynamic-gradient-text {
-    background: var(--text-gradient);
-    background-size: 250% 250%;
+    width: fit-content; /* Ajuste le background du texte à sa largeur, afin que le gradient commence au début du texte et finisse à sa fin */
+    background: var(--text-gradient); /* Applique le gradient au fond du texte */
+    background-size: 250% 250%; /* Augmente de 250% le background, afin que je puisse le bouger pour donner une impression de mouvement */
+    /* Comme dit à la l.57, ici je restreins le fond du texte à celui-ci */
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    /* Ici, je rends le texte transparent pour qu'on puisse voir le fond en gradient */
+    color:transparent;
+    /*J'applique l'animation fade pour une durée de 15s, l'animation sera 
+    un cubic-bezier (la vitesse de déplacement du fond évolue dans le temps) et l'animation sera infinie*/
+    -webkit-animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; 
     -moz-animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
     animation: fade 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
-/* Définition des keyframes pour l'utilisation des transition dans le .dynamic-gradient-text */
 
-    /* Encore dans un souci de cross-compatibilité, on définira l'animation fade plusieurs fois */
+
+/* ================================== Keyframes pour les .dynamic-gradient-text ================================== */
+
+
+
+    /* Encore dans un souci de cross-compatibilité, on définira l'animation fade une fois par webkit */
+
+    /* L'animation, dans un premier temps, fera le chemin aller jusqu'à la background-position de 100% du `0%` au `50%`, puis fera le retour du `50%` au `100%` */
 
 @-webkit-keyframes fade {
-    /*  */
     0% {
         background-position: 0% 0%
     }
@@ -124,59 +151,101 @@ body {
 }
 
 
+
+/* ================================== Page entière ================================== */
+
+
+
+    /* Ici, flex est utilisé pour pouvoir centrer l'élement main sur la page */
+
 #container {
-    display: flex;
+    display: flex; 
     justify-content: center;
     background: linear-gradient(var(--clear-black), black) no-repeat;
 }
 
-/* Conteneur de la page du CV */
+
+
+/* ================================== Conteneur de la page du CV ================================== */
+
+
 
 main {
     width: 1240px;
     margin: 1rem;
     padding-bottom: 35px;
-    /*Mise en page (ombre autour du container, légère bordure pour améliorer la discernation de l'élément, coins arrondis)*/
-    box-shadow: 0px 0px 30px var(--clear-white);
+    /*Mise en page (ombre autour du container, coins arrondis, couleur globale du texte)*/
+    box-shadow: 0 0 30px -15px var(--clear-white); /* Les deux premiers 0 définissent l'offset de l'ombre appliquée sur les axes x et y, les deux dernières valeurs la taille de l'ombre et sa "profondeur" */
     border-radius: 5px;
     color: aliceblue;
+    /* Utilisation d'une grid pour fractionner le header et le contenu principal */
     display: grid;
     grid-template-rows: 250px 1fr;
     gap: 3rem;
 }
 
-/* Header */
+
+
+/* ================================== Contenu de la page ================================== */
+
+
+
+
+
+/* ============================================================================ */
+/* ================================== HEADER ================================== */
+/* ============================================================================= */
+
+
+
+
+/* ================================== Règles générales `header` ================================== */
+
+
 
 header {
-    box-shadow: 0px 20px 18px -9px black;
+    box-shadow: 0 20px 18px -9px black; 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* Ici, le flex sur le header va disposer les éléments tels qu'ils soient tous espacés uniformément et que leur contenu soit aligné au centre sur l'axe y */
 }
 
-/* Image de l'en-tête */
+
+
+/* ================================== Header - `picture` ================================== */
+
+
 
 header picture {
     width: 250px;
     height: 250px;
+    /* Pour cet élément ainsi que pour le header contact et les deux aside, j'ai préféré mettre une margin plutôt qu'un padding sur la page 
+    pour que le conteneur du header remplisse l'entiereté de la page en largeur */
     margin-left: 1.5rem;
+    background: var(--bg-gradient);
     border-radius: 12.5px;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    overflow: hidden; /* Je cache l'overflow pour masquer les bords carrés de l'image contenue dans l'élément */
 }
 
 header picture img {
+    /* Ici, je définis la taille de l'image pour qu'elle prenne 100% de la place qui lui est disponible */
     width: 100%;
     height: 100%;
 }
 
-/* Texte de l'en-tête */
+
+
+/* ================================== Header - `#head-text` ================================== */
+
+
+
+    /* Ici c'est quasiment que du bête positionnement très explicite, d'où la rareté des commentaires */
 
 header #head-text {
-    width: fit-content;
     text-align: center;
-    align-self: center;
 }
 
 header #head-text h1 {
@@ -187,11 +256,15 @@ header #head-text h2 {
     font-size: 1.75em;
 }
 
-/* Partie "Contact" du header */
+
+
+/* ================================== Header - `#contact` ================================== */
+
+
 
 header #contact {
     width: 250px;
-    margin-right: 1.5rem;
+    margin-right: 1.5rem; /* c.f. l.223-224 */
 }
 
 header #contact h2 {
@@ -201,60 +274,83 @@ header #contact h2 {
 
 header #contact ul {
     margin-left: 1rem;
-    list-style-type: none;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+    list-style-type: none; /* Retire les bulletpoints avant les lignes de la liste */
 }
 
 header #contact-content li.field {
     font-size: 1em;
     padding-left: 1rem;
-    font-family: "SF Pro Light";
+    font-family: "SF Pro Light", sans-serif;
     font-weight: normal;
 }
 
-header #contact-content li.mail a {
-    text-decoration: none;
-    -moz-text-fill-color: aliceblue;
+    /* L'élément a est un lien avec la classe gradient-text. Pour voir le dégradé uniquement quand il est survolé, je remets son remplissage 
+    à la couleur par défaut quand il n'est pas survolé, puis je rends le texte à nouveau transparent quand il est survolé*/
+
+header #contact-content li.mail a { 
+    text-decoration: none; /* Retire le soulignage appliqué par défaut aux liens */
+    -moz-text-fill-color: aliceblue; 
     -webkit-text-fill-color: aliceblue;
 }
 
 header #contact-content li.mail a:hover {
-    font-weight: bold;
+    font-weight: bold; /* Je mets le texte en gras quand il est survolé pour améliorer la lisibilté; purement esthétique */
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
 }
 
-/* Règles du contenu principal */
+
+
+/* ================================================================================== */
+/* ================================== MAIN-CONTENT ================================== */
+/* ================================================================================== */
+
+
+
+
+/* ================================== Règles générales `#main-content` ================================== */
+
+
 
 #under-header {
     display: flex;
     font-size: 1.25em;
 }
 
-/* Règles des deux balises aside  */
+
+
+/* ================================== Règles générales `aside` ================================== */
+
+
 
 #under-header aside {
-    min-width: 250px;
-    display: flex;
+    min-width: 250px; /* Permet de conserver la largeur minimale des aside à 250px */
+    /* Permet de garder les éléments en forme au cas où l'écran est plus petit */
+    display: flex; 
     flex-direction: column;
 }
 
-/* Règles du aside de gauche contenant mes infos personnelles */
+
+
+/* ================================== Aside `#my-infos` ================================== */
+
+
 
 #under-header #my-infos {
-    margin-left: 1.5rem;
+    margin-left: 1.5rem; /* c.f. l.223-224 */
 }
 
+/* Règles générales des cases du #my-infos */
+
 #under-header #my-infos article {
-    min-width: fit-content;
     padding: 15px;
     margin-bottom: 50px;
-    box-shadow: 0px 0px 15px var(--clear-white);
-    border: 1px solid aliceblue;
+    box-shadow: 0 0 15px -7px aliceblue;
+    border: 1px solid var(--clear-white); /* Définit une bordure pleine d'un pixel de couleur aliceblue */
     border-radius: 5px;
 }
+
+    /* Quasiment que du positionnement explicite ici aussi */
 
 #under-header #my-infos ul {
     padding-left: 2.5rem;
@@ -266,7 +362,11 @@ header #contact-content li.mail a:hover {
     margin: 0.5em;
 }
 
-/* Règles de la section principale du CV */
+
+
+/* ================================== Contenu `#main-content` ================================== */
+
+
 
 #under-header #main-content {
     padding: 0 2.5rem;
@@ -286,13 +386,17 @@ header #contact-content li.mail a:hover {
 
 #under-header #main-content article ul h3 {
     color: var(--clear-white);
-    letter-spacing: 1px;
+    letter-spacing: 1px; /* Permet d'espacer un peu plus les caractères, un peu serrés par défaut; purement esthétique*/
 }
 
-/* Aside compétences: barres de progression, règles générales de l'article */
+
+
+/* ================================== Aside `#competences` ================================== */
+
+
 
 #under-header #competences {
-    margin-right: 1.5rem;
+    margin-right: 1.5rem; /* c.f. l.223-224 */
 }
 
 #under-header #competences h2 {
@@ -300,48 +404,59 @@ header #contact-content li.mail a:hover {
     font-size: 1.5em;
 }
 
+/* Ici, j'ai utilisé la balise label plutôt qu'un p pour la lisibilité */
+
 #under-header #competences label {
-    display: block;
+    display: block; /* Permet le retour à la ligne après les label */
     margin-left: 15px;
 }
 
-/* Progress bars */
+
+
+/* ================================== Progress Bars ================================== */
+
+
 
 #under-header #competences progress {
     margin-left: 15px;
     margin-bottom: 10px;
     height: 1.25em;
     color: aliceblue;
-    position: relative;
-    -webkit-appearance: none;
+    position: relative; /* Permet au contenu du pseudo-élément `::before` de se placer au dessus de la progress bar */
+    -webkit-appearance: none; /* Permet de pouvoir mettre en forme la progress bar comme on le veut */
 }
 
-#under-header #competences progress[value]::before {
-    position: absolute;
+#under-header #competences progress[value]::before { /* On passe toujours une progress bar un attribut value, qui définit son pourcentage de remplissage. Ici, je récupère cette value pour l'afficher dans le content*/
+    position: absolute; /* Permet au contenu du pseudo-élément de se placer au dessus de sa progress bar */
     content: attr(value) "%";
-    align-items: center;
-    margin-left: 5px;
-    color: var(--clear-black);
+    align-items: center; /* Centre le content dans la progress bar */
+    margin-left: 5px; /* Décale légèrement le texte pour le "centrer" sur l'axe x */
 }
+
+    /* La condition @supports est utilisée pour définir la progress bar selon le webkit du navigateur */
 
 @supports selector(::-webkit-progress-bar) {
+    /* Règles du fond de la progress bar */
     #under-header #competences ::-webkit-progress-bar {
-        background: var(--very-clear-white);
+        background: var(--clear-white);
         border-radius: 4px;
     }
+    /* Règles du pourcentage de remplissage de la progress bar */
     #under-header #competences ::-webkit-progress-value {
-        background: var(--clear-white);
+        background: var(--pgbar-gradient);
         border-radius: 4px;
     }
 }
 
 @supports selector(::-moz-progress-bar) {
+    /* Règles du fond de la progress bar */
     #under-header #main-content #competences ::-moz-progress-bar {
-        background: var(--very-clear-white);
+        background: var(--clear-white);
         border-radius: 4px;
     }
+    /* Règles du pourcentage de remplissage de la progress bar */
     #under-header #main-content #competences ::-moz-progress-value {
-        background: var(--very-clear-white);
+        background: var(--pgbar-gradient);
         border-radius: 4px;
     }
 }
