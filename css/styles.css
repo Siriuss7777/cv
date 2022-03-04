@@ -159,6 +159,7 @@ body {
     /* Ici, flex est utilisé pour pouvoir centrer l'élement main sur la page */
 
 #container {
+    min-width: 768px;
     display: flex; 
     justify-content: center;
     background: linear-gradient(var(--clear-black), black) no-repeat;
@@ -179,8 +180,8 @@ main {
     border-radius: 5px;
     color: aliceblue;
     /* Utilisation d'une grid pour fractionner le header et le contenu principal */
-    display: grid;
-    grid-template-rows: 250px 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
 }
 
@@ -342,13 +343,15 @@ header #contact-content li.mail a:hover {
 
 /* Règles générales des cases du #my-infos */
 
+/*
 #under-header #my-infos article {
     padding: 15px;
     margin-bottom: 50px;
     box-shadow: 0 0 15px -7px aliceblue;
-    border: 1px solid var(--clear-white); /* Définit une bordure pleine d'un pixel de couleur aliceblue */
+    border: 1px solid var(--clear-white); /* Définit une bordure pleine d'un pixel de couleur aliceblue 
     border-radius: 5px;
 }
+*/
 
     /* Quasiment que du positionnement explicite ici aussi */
 
@@ -359,9 +362,12 @@ header #contact-content li.mail a:hover {
 
 #under-header #my-infos article h2 {
     font-size: 1.5em;
-    margin: 0.5em;
+    margin-left: 0.5em;
 }
 
+.resp-infos{
+    visibility: collapse;
+}
 
 
 /* ================================== Contenu `#main-content` ================================== */
@@ -380,6 +386,10 @@ header #contact-content li.mail a:hover {
     font-size: 2em;
 }
 
+#under-header #main-content ul li{
+    padding-bottom: 0.5rem;
+}
+
 #under-header #main-content article ul {
     list-style-type: none;
 }
@@ -390,6 +400,11 @@ header #contact-content li.mail a:hover {
 }
 
 
+
+#right-aside{
+    display: flex;
+    flex-direction: column;
+}
 
 /* ================================== Aside `#competences` ================================== */
 
