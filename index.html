@@ -1,139 +1,170 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
+  <head>
     <title>CV Bastien Le Gall G3S1</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<body>
+  <body>
     <div id="container">
-        <main>
-            <header class="bold-text">
+      <main>
+        <header class="bold-text">
+          <picture>
+            <img src="images/photo.png" alt="thicc ye" />
+          </picture>
 
-                <picture>
-                    <img src="images/photo.png" alt="thicc ye">
-                </picture>
+          <div id="head-text" class="bold-text dynamic-gradient-text">
+            <h1>Bastien Le Gall</h1>
+            <h2>étudiant en informatique</h2>
+          </div>
 
-                <div id="head-text" class="bold-text dynamic-gradient-text">
-                    <h1>Bastien Le Gall</h1>
-                    <h2>étudiant en informatique</h2>
-                </div>
+          <div id="contact">
+            <h2 class="large-text dynamic-gradient-text">Contact</h2>
 
-                <div id="contact">
-                    <h2 class="large-text dynamic-gradient-text">Contact</h2>
+            <ul id="contact-content">
+              <li>N° téléphone:</li>
+              <li class="field">00-07-77-77-77</li>
+              <li>Mail:</li>
+              <li class="field mail gradient-text">
+                <a href="mailto:bastien.le-gall@etu.univ-lyon1.fr">
+                  bastien.le-gall@etu.univ-lyon1.fr
+                </a>
+              </li>
+              <li>Adresse:</li>
+              <li class="field">million, liberté... sheesh</li>
+            </ul>
+          </div>
+        </header>
+        <section id="under-header">
+          <aside id="my-infos" class="full-infos">
+            <article id="languages">
+              <h2 class="gradient-text">Langues</h2>
+              <ul>
+                <li>Français [Voltaire]</li>
+                <li>Anglais B2</li>
+                <li>Espagnol A2</li>
+              </ul>
+            </article>
+            <article id="hobbies">
+              <h2 class="gradient-text">Hobbies</h2>
+              <ul>
+                <li>Informatique</li>
+                <li>Rugby</li>
+                <li>Jeux Vidéos</li>
+                <li>DIY/Bricolage</li>
+              </ul>
+            </article>
+          </aside>
 
-                    <ul id="contact-content">
-                        <li>N° téléphone:</li>
-                        <li class="field">00-07-77-77-77</li>
-                        <li>Mail:</li>
-                        <li class="field mail gradient-text">
-                            <a href="mailto:bastien.le-gall@etu.univ-lyon1.fr">
-                                bastien.le-gall@etu.univ-lyon1.fr
-                            </a>
-                        </li>
-                        <li>Adresse:</li>
-                        <li class="field">million, liberté... sheesh</li>
-                    </ul>
+          <section id="main-content">
+            <article id="diplomes">
+              <h2 class="bold-text gradient-text">Diplômes</h2>
+              <ul>
+                <li>
+                  <h3>Diplôme National du Brevet</h3>
+                  <p>Collège Henri Longchambon / 2018</p>
+                  <p>Admis Mention Très Bien, session 2018</p>
+                </li>
+                <li>
+                  <h3>Attestation d'engagement Lycéen et Collégien</h3>
+                  <p>
+                    Atteste de mon investissement dans la continuité pédagogique
+                    pendant la période de confinement de Mars 2020
+                  </p>
+                </li>
+                <li>
+                  <h3>Diplôme du Baccalauréat Technologique</h3>
+                  <p>Lycée La Martinière Monplaisir / 2018-2021</p>
+                  <p>Section STI2D, Admis Mention Très Bien, session 2021</p>
+                </li>
+                <li>
+                  <h3>Concours Général</h3>
+                  <p>Lycée La Martinière Monplaisir / 2021</p>
+                  <p>Inscrit au Concours Général, section 2I2D</p>
+                </li>
+                <li>
+                  <h3>Bachelor Universitaire Technologique</h3>
+                  <p>IUT Lyon 1 / 2021/2024</p>
+                  <p>Cursus Informatique; diplôme en cours de préparation</p>
+                </li>
+              </ul>
+            </article>
+            <article id="experience">
+              <h2 class="bold-text gradient-text">Expérience</h2>
+              <ul>
+                <li>
+                  <h3>Stage en entreprise</h3>
+                  <p>ENS Lyon</p>
+                  <p>Stage dans la section EducTice de l'IFÉ, 2018</p>
+                </li>
+                <li>
+                  <h3>Lorem ipsum</h3>
+                  <p>???</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Iusto est accusamus ipsum officiis nam, veritatis placeat
+                    earum dicta.
+                  </p>
+                </li>
+              </ul>
+            </article>
+          </section>
 
-                </div>
+          <section id="right-aside">
+            <aside id="competences">
+              <h2 class="medium-text gradient-text">Compétences</h2>
+              <div id="progress-bars">
+                <progressbar>
+                  <label>Hardware</label>
+                  <progress value="75" max="100"></progress>
+                </progressbar>
+                <progressbar>
+                  <label>Python</label>
+                  <progress value="65" max="100"></progress>
+                </progressbar>
+                <progressbar>
+                  <label>Bases de données</label>
+                  <progress value="40" max="100"></progress>
+                </progressbar>
+                <progressbar>
+                  <label>Web</label>
+                  <progress value="40" max="100"></progress>
+                </progressbar>
+                <progressbar>
+                  <label>Java</label>
+                  <progress value="35" max="100"></progress>
+                </progressbar>
+                <progressbar>
+                  <label>C</label>
+                  <progress value="30" max="100"></progress>
+                </progressbar>
+              </div>
+            </aside>
 
-            </header>
-            <section id="under-header">
-
-                <aside id="my-infos">
-                    <article id="hobbies">
-                        <h2 class="gradient-text">Hobbies</h2>
-                        <ul>
-                            <li>Informatique</li>
-                            <li>Rugby</li>
-                            <li>Jeux Vidéos</li>
-                            <li>DIY/Bricolage</li>
-                        </ul>
-                    </article>
-                    <article id="languages">
-                        <h2 class="gradient-text">Langues</h2>
-                        <ul>
-                            <li>Français [Voltaire]</li>
-                            <li>Anglais B2</li>
-                            <li>Espagnol A2</li>
-                        </ul>
-                    </article>
-                </aside>
-
-                <section id="main-content">
-
-                    <article id="diplomes">
-                        <h2 class="bold-text gradient-text">Diplômes</h2>
-                        <ul>
-                            <li>
-                                <h3>Diplôme National du Brevet</h3>
-                                <p>Collège Henri Longchambon / 2018</p>
-                                <p>Admis Mention Très Bien, session 2018</p>
-                            </li>
-                            <li>
-                                <h3>Attestation d'engagement Lycéen et Collégien</h3>
-                                <p>Atteste de mon investissement dans la continuité pédagogique pendant la période de
-                                    confinement de Mars 2020</p>
-                            </li>
-                            <li>
-                                <h3>Diplôme du Baccalauréat Technologique</h3>
-                                <p>Lycée La Martinière Monplaisir / 2018-2021</p>
-                                <p>Section STI2D, Admis Mention Très Bien, session 2021</p>
-                            </li>
-                            <li>
-                                <h3>Concours Général</h3>
-                                <p>Lycée La Martinière Monplaisir / 2021</p>
-                                <p>Inscrit au Concours Général, section 2I2D</p>
-                            </li>
-                            <li>
-                                <h3>Bachelor Universitaire Technologique</h3>
-                                <p>IUT Lyon 1 / 2021/2024</p>
-                                <p>Cursus Informatique; diplôme en cours de préparation</p>
-                            </li>
-                        </ul>
-                    </article>
-                    <article id="experience">
-                        <h2 class="bold-text gradient-text">Expérience</h2>
-                        <ul>
-                            <li>
-                                <h3>Stage en entreprise</h3>
-                                <p>ENS Lyon</p>
-                                <p>Stage dans la section EducTice de l'ifé, 2018</p>
-                            </li>
-                            <li>
-                                <h3>Lorem ipsum</h3>
-                                <p>???</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est accusamus ipsum
-                                    officiis nam, veritatis placeat earum dicta.</p>
-                            </li>
-                        </ul>
-                    </article>
-
-
-                </section>
-
-                <aside id="competences">
-                    <h2 class="medium-text gradient-text">Compétences</h2>
-                    <div id="progress-bars">
-                        <label>Hardware</label>
-                        <progress value="75" max="100"></progress>
-                        <label>Python</label>
-                        <progress value="65" max="100"></progress>
-                        <label>Bases de données</label>
-                        <progress value="60" max="100"></progress>
-                        <label>Web</label>
-                        <progress value="40" max="100"></progress>
-                        <label>C</label>
-                        <progress value="30" max="100"></progress>
-                    </div>
-                </aside>
-
-            </section>
-
-        </main>
+            <aside id="my-infos" class="resp-infos">
+              <article id="languages">
+                <h2 class="gradient-text">Langues</h2>
+                <ul>
+                  <li>Français [Voltaire]</li>
+                  <li>Anglais B2</li>
+                  <li>Espagnol A2</li>
+                </ul>
+              </article>
+              <article id="hobbies">
+                <h2 class="gradient-text">Hobbies</h2>
+                <ul>
+                  <li>Informatique</li>
+                  <li>Rugby</li>
+                  <li>DIY/Bricolage</li>
+                </ul>
+              </article>
+            </aside>
+          </section>
+        </section>
+      </main>
     </div>
-</body>
-
+  </body>
 </html>
