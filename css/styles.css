@@ -116,37 +116,37 @@ body {
 
 @-webkit-keyframes fade {
     0% {
-        background-position: 0% 0%
+        background-position: 0 0
     }
     50% {
         background-position: 100% 100%
     }
     100% {
-        background-position: 0% 0%
+        background-position: 0 0
     }
 }
 
 @-moz-keyframes fade {
     0% {
-        background-position: 0% 0%
+        background-position: 0 0
     }
     50% {
         background-position: 100% 100%
     }
     100% {
-        background-position: 0% 0%
+        background-position: 0 0
     }
 }
 
 @keyframes fade {
     0% {
-        background-position: 0% 0%
+        background-position: 0 0
     }
     50% {
         background-position: 100% 100%
     }
     100% {
-        background-position: 0% 0%
+        background-position: 0 0
     }
 }
 
@@ -172,7 +172,7 @@ body {
 
 
 main {
-    width: 1240px;
+    width: 1050px;
     margin: 1rem;
     padding-bottom: 35px;
     /*Mise en page (ombre autour du container, coins arrondis, couleur globale du texte)*/
@@ -205,7 +205,7 @@ main {
 
 
 header {
-    box-shadow: 0 20px 18px -9px black; 
+    box-shadow: 0 20px 18px -9px black;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -225,7 +225,7 @@ header picture {
     pour que le conteneur du header remplisse l'entiereté de la page en largeur */
     margin-left: 1.5rem;
     background: var(--bg-gradient);
-    border-radius: 12.5px;
+    border-radius: 13px;
     display: flex;
     justify-content: center;
     overflow: hidden; /* Je cache l'overflow pour masquer les bords carrés de l'image contenue dans l'élément */
@@ -311,35 +311,22 @@ header #contact-content li.mail a:hover {
 
 /* ================================== Règles générales `#main-content` ================================== */
 
-
-
 #under-header {
-    display: flex;
+    display: grid;
     font-size: 1.25em;
+    grid-template-columns: 66% 34%;
 }
-
-
 
 /* ================================== Règles générales `aside` ================================== */
 
-
-
 #under-header aside {
-    min-width: 250px; /* Permet de conserver la largeur minimale des aside à 250px */
-    /* Permet de garder les éléments en forme au cas où l'écran est plus petit */
     display: flex; 
     flex-direction: column;
 }
 
-
-
 /* ================================== Aside `#my-infos` ================================== */
 
 
-
-#under-header #my-infos {
-    margin-left: 1.5rem; /* c.f. l.223-224 */
-}
 
 /* Règles générales des cases du #my-infos */
 
@@ -369,10 +356,7 @@ header #contact-content li.mail a:hover {
     visibility: collapse;
 }
 
-
 /* ================================== Contenu `#main-content` ================================== */
-
-
 
 #under-header #main-content {
     padding: 0 2.5rem;
@@ -419,23 +403,34 @@ header #contact-content li.mail a:hover {
     font-size: 1.5em;
 }
 
-/* Ici, j'ai utilisé la balise label plutôt qu'un p pour la lisibilité */
-
-#under-header #competences label {
-    display: block; /* Permet le retour à la ligne après les label */
-    margin-left: 15px;
+#under-header #competences ul{
+    margin-left: 1em;
+    margin-bottom: 0.5em;
 }
+
+#under-header #competences ul + ul{
+    margin-left: 2em;
+}
+
 
 
 
 /* ================================== Progress Bars ================================== */
 
+#under-header #competences progressbar{
+    margin-right: 0;
+}
 
+/* Ici, j'ai utilisé la balise label plutôt qu'un p pour la lisibilité */
+
+#under-header #competences label {
+    display: block; /* Permet le retour à la ligne après les label */
+}
 
 #under-header #competences progress {
-    margin-left: 15px;
     margin-bottom: 10px;
     height: 1.25em;
+    width: 80%;
     color: aliceblue;
     position: relative; /* Permet au contenu du pseudo-élément `::before` de se placer au dessus de la progress bar */
     -webkit-appearance: none; /* Permet de pouvoir mettre en forme la progress bar comme on le veut */

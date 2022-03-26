@@ -1,129 +1,76 @@
-@media (max-width:1180px){
-    #under-header{
-        display: grid;
-        
-        grid-template-areas: 
-        'main-content competences'
-        'main-content my-infos';
-        grid-template-columns: 3fr 1fr;
-    }
-    #under-header #main-content{
-        grid-area: main-content;
-        /* padding-right: 0; */
-    }
-    
-    #under-header #competences{
-        margin:0;
-        padding:0;
-        grid-area: competences;
-        margin-bottom: 1rem;
-    }
-    #under-header #my-infos{
-        margin:0;   
-        padding:0;
-        grid-area: my-infos;
-    }
-    #under-header aside{
-        height: fit-content;
-        display: flex;
-        justify-content: flex-start;
-        grid-area: aside;
-        width: 200px;
-    }
-    
-    #under-header #my-infos ul{
-        padding-left: 1.5em;
-    }
-    
-    #under-header #my-infos article h2{
-        margin:0;
-    }
-    
-    .resp-infos{
-        visibility: visible;
-    }
-    
-    #my-infos.full-infos{
-        visibility: collapse;
+ @media all and (max-width:1000px){
+    header #contact{
+        visibility: hidden;
         height: 0;
     }
 
-    @media all and (max-width:1000px){
-        header #contact{
-            visibility: hidden;
-            height: 0;
-        }
-
-        header{
-            display: grid;
-            grid-template-areas: 'picture text';
-            grid-template-columns: 1fr 4fr;
-        }
-        
-        header picture{
-            grid-area: picture;
-        }
-
-        header #head-text{
-            justify-self: center;
-            grid-area: text;
-        }
+    header{
+        display: grid;
+        grid-template-areas: 'picture text';
+        grid-template-columns: 1fr 4fr;
     }
 
-    @media all and (max-width:700px){
-        #under-header{
-            display: flex;
-            flex-direction: column;
-        }
-        #under-header #right-aside aside h2{
-            font-size: 1.65em;
-            /* font-weight: bold;
-            font-family: "SF Pro Semibold", sans-serif; */
-        }
-        #right-aside{
-            padding: 0 2.5rem;
-        }
-
-        #right-aside #competences{
-            width: 100%;
-        }
-        #right-aside #competences #progress-bars{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            margin-bottom: 25px;
-        }
-        #right-aside #competences label,
-        #right-aside #competences progress{
-            margin:0;
-            margin-right: 15px;
-        }
-        #right-aside #competences progressbar{
-            margin-bottom: 10px;
-        }
-
-        #right-aside #my-infos{
-            width: 100%;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
-        #right-aside article{
-            /* text-align: center; */
-            width: 40%;
-            height: 80%;
-        }
-
-        #right-aside article {
-            padding:15px;
-            border-radius: 5px;
-            border: 1px solid rgba(240,248,255,0.3);
-            background-color: rgba(240,248,255,0.05);
-        }
-
-        #right-aside article h2{
-            align-self: center;
-        }
+    header picture{
+        grid-area: picture;
     }
-    
+
+    header #head-text{
+        justify-self: center;
+        grid-area: text;
+    }
+}
+
+@media all and (max-width:700px){
+    #under-header{
+        display: flex;
+        flex-direction: column;
+    }
+    #under-header #right-aside aside h2{
+        font-size: 1.65em;
+        /* font-weight: bold;
+        font-family: "SF Pro Semibold", sans-serif; */
+    }
+    #right-aside{
+        padding: 0 2.5rem;
+    }
+
+    #right-aside #competences{
+        width: 100%;
+    }
+    #right-aside #competences #progress-bars{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-bottom: 25px;
+    }
+    #right-aside #competences label,
+    #right-aside #competences progress{
+        margin: 0 15px 0 0;
+    }
+    #right-aside #competences progressbar{
+        margin-bottom: 10px;
+    }
+
+    #right-aside #resp-my-infos{
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    #right-aside article{
+        /* text-align: center; */
+        width: 40%;
+        height: 80%;
+    }
+
+    #right-aside article {
+        padding:15px;
+        border-radius: 5px;
+        border: 1px solid rgba(240,248,255,0.3);
+        background-color: rgba(240,248,255,0.05);
+    }
+
+    #right-aside article h2{
+        align-self: center;
+    }
 }
